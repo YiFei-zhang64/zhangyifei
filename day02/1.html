@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #portrait {
+                width: 79px;  
+                height: auto;
+       }
+       
+       
+       
+       
+       </style>
+</head>
+
+<body>
+    <form action="http://localhost:3000/dopost" method="POST" enctype="multipart/form-data">
+        图片:
+        <div style="    width: 300px; border: 1px solid black; height: 300px;">
+            <img src="" id="previewImg" />
+            <input type="file" name="pic" id="file" value="">
+        </div>
+
+        <input type="submit" value="tijiao">
+
+    </form>
+</body>
+<script>
+    var file=document.getElementById("file")
+        
+
+
+
+        // 根据ID获取file内容
+        var file = document.getElementById('file').files[0]
+        
+        // 创建文件读取对象
+        var read = new FileReader()
+        
+        // 读取成base64
+        var img64 = read.readAsDataURL(file)
+        
+        // 赋值给图片即可
+        document.getElementById('previewImg').src = img64
+        </script>
+
+</html>

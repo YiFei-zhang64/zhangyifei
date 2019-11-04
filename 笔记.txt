@@ -1,0 +1,225 @@
+查看当前node版本
+node -v||node --version
+定义 什么是node
+Node.js是一个让javasript运行在服务器端的开发平台 基于chrome V8引擎
+Node.js特点(单线程，非阻塞I/O，事件驱动)
+单线程：只能进行一个用户的开辟的空间
+ 
+迭代处理函数（自己调用自己）
+node应用:(用户表单收集，考试系统，聊天室，图文直播，提供JSON的API)
+同步和异步
+同步是阻塞模式，异步是非阻塞模式
+node 目录 http搭建服务器 createserver 搭建服务器
+req=>request请求 res=>response 响应
+url获取地址栏 
+url下的方法
+reslove 如果是绝对路径 则会用新路径覆盖旧的路径 
+        如果是相对路径 则会拼接
+        解析为正确路径
+format 将对象转换为字符串(序列化)
+parse 将字符串转换为对象(反序列化)
+protocal 主机域名 port
+query 获取get传值 path 获取文件路径
+isAbsolute 判断是否是绝对路径   是的话返回true 否则返回false
+join按照特定的标点分隔符进行路径的正确拼接 从而形成正确的路径
+dirname 返回目录名称
+basename 返回当前目录路径
+extname 获取文件后缀名
+normalize 将路径规范化(返回输入的路径)
+
+querystring.parse                      (str,separator,eq,options) 
+
+parse这个方法是将一个字符串反序列化为一个对象
+str指需要反序列化的字符串; 
+separator（可省）指用于分割str这个字符串的字符或字符串，默认值为"&";    
+eq（可省）指用于划分键和值的字符或字符串，默认值为"="; 
+options（可省）该参数是一个对象，里面可设置maxKeys和decodeURIComponent这两个属性
+
+querystring.stringify                  (obj,separator,eq,options)    
+
+stringify这个方法是将一个对象序列化成一个字符串，与querystring.parse相对。
+obj指需要序列化的对象 	
+separator（可省）用于连接键值对的字符或字符串，默认值为"&";  
+eq（可省）用于连接键和值的字符或字符串，默认值为"=" 
+options（可省）传入一个对象，该对象可设置encodeURIComponent这个属性：
+
+querystring.escape （str）        	escape可使传入的字符串进行编码
+querystring.unescape (str)          解码
+
+fs模块
+提供了一个API，用于模仿标准POSIX函数的方式与文件系统进行交互
+打开文件    fs.open(path, flags[, mode], callback) 
+文件信息	fs.stat(path[, options], callback)
+新建文件	fs.appendFile(path, data[, options], callback)
+写入文件	fs.writeFile(file, data[, options], callback)
+读取文件	fs.read()
+读取文件	fs.readFile(path[, options], callback)
+重命名文件	fs.rename(oldPath, newPath, callback)
+关闭文件	fs.close(fd, callback)
+截取文件	fs.ftruncate(fd[, len], callback)
+删除文件	fs.unlink(path, callback)
+文件存在	fs.stat() / fs.access()
+监听文件	fs.watchFile(filename[, options], listener)
+停止监听	fs.unwatchFile(filename[, listener])	
+打开大文件	fs.createReadStream(path[, options])	
+写入大文件	fs.createWriteStream(path[, options])
+创建目录	fs.mkdir(path[, options], callback)
+读取目录	fs.readdir(path[, options], callback)
+删除目录	fs.rmdir(path, callback)
+
+
+
+
+
+
+    npm(包管理工具)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+buffer
+从类型来说 分为两种
+是一个类数组
+从内存来说 他就是开辟了一个新内存空间
+作用:专门处理二进制数据的， 可以应用在文件流 事件流 Tcp 
+解决数据过大的问题 解决数据传输过大  
+别名 :缓存区(等待区) 公交站
+什么是二进制数据？ 八进制 十六进制
+返回0/1  不会出现别的数据
+  
+
+创建buffer
+new buffer(废弃)
+因为buffer 是一个全局对象  所以不需要通过requre加载
+buffer可以传输的类型
+ string, Buffer, ArrayBuffer, Array, or Array-like Object
+buffer下列有什么方法 
+toJSon toString slice contact length
+字节 bit byte 
+Buffer编码类型 
+ascii - 仅支持 7 位 ASCII 数据。如果设置去掉高位的话，这种编码是非常快的。
+utf8 - 多字节编码的 Unicode 字符。许多网页和其他文档格式都使用 UTF-8 。
+utf16le - 2 或 4 个字节，小字节序编码的 Unicode 字符。支持代理对（U+10000 至 U+10FFFF）。
+ucs2 - utf16le 的别名。
+base64 - Base64 编码。  上传图片会用到     安全数据量比较轻
+latin1 - 一种把 Buffer 编码成一字节编码的字符串的方式。
+binary - latin1 的别名。
+hex - 将每个字节编码为两个十六进制字符。
+buffer和cache的区别
+buffer 缓存区        cache 缓存
+临时居住地           永久的家
+
+
+
+
+
+
+第一种定义buffer的方式
+Buffer.from 把字符串转buffer
+var buf=Buffer.from()
+返回一个初始化的数据，防止生成新的数据 包含旧数据
+var buf=Buffer.alloc(10)  创建一个长度为 10、且用零填充的 Buffer
+
+var buf=Buffer.allocUnsafe() 不推荐使用 不安全 未被初始化的Buffer
+
+
+
+
+
+模板引擎 
+ejs 
+定义 :高效javasprit模板引擎
+render 渲染   第一个参数模板 第二个参数数据(必须是对象)
+compiler 编译 第一个参数模板 第二个参数数据
+
+template 模板  不怎么弄
+<%#> 流程控制标签
+<%=%> 输出
+<%#%>去除注释
+<%——%>去除前面的空格
+<% _%>去除后面的空格
+<%-%>语句解析  转译结构到模板 <include />包含
+
+
+
+
+
+
+jade(pug)
+
+
+
+
+
+ art—template是一个简约而高效的模板引擎
+语法
+标准语法
+[{}]
+清除npm缓存 npm cache clean -f
+proxy
+npm config set proxy null 
+清楚代理
+{{}}
+双大括号 插值表达式
+events 事件    crypto加密 
+以上属于node原生
+ 框架
+ express   
+ 定义:基于 Node.js 平台，快速、开放、极简的 Web 开发框架
+ 特点:
+ 支持链式调用
+
+
+ 下载:npm install express --save
+ 工具:postman 接口测试工具
+ get请求当中 query与params区别
+ 1.query适用范围广一点  
+ 2.路由的限制性  param的限制性要比query的限制性高
+ koa
+ egg
+ nest
+
+
+
+
+
+
+template
+
+
+
+
+express.static()
+为了提供对静态资源文件(图片、csss文件、javascript文件)的服务，请使用Express内置的中间函数 express.static 。
+传递一个包含静态资源的目录给 express.static 中间件用于立刻开始提供文件。比如用以下代码来提供public目录下的图片、css文件和javascript文件：
+app.use(express.static('public'));
+提供给 express.static 函数的路径是一个相对node进程启动位置的相对路径。如果你在其他的文件夹中启动express app，更稳妥的方式是使用静态资源文件夹的绝对路径
+app.use('/static', express.static(__dirname + '/public'));
+
+
+
+express.session
+作用：用指定的参数创建一个session中间件，sesison数据不是保存在cookie中，仅仅sessionID保存到cookie中，session的数据仅仅保存在服务器端
+
+
+
+
+
+

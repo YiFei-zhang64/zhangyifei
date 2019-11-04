@@ -1,0 +1,19 @@
+node_modules 项目依赖
+npm (包管理工具) 
+命令：
+npm login   登录
+npm punlish 推送包
+npm init    项目初始化  =>package.json
+npm install =npm i 下载
+npm install 包名称 
+--save 把项目依赖包下载到生产环境中   
+什么是生产环境?
+线上运行的环境 
+--save-dev =-D 把项目依赖包下载到生产环境中  
+npm uninstall 卸载
+cnpm 淘宝镜像
+案列
+上传图片:
+formidabl
+fields 文本域
+files 文件域

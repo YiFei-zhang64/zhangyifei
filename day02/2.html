@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input type="file" name="pclogo" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*">
+        <img src="默认头像地址" class="img-circle img-thumbnail img-responsive" id="avarimgs">
+</body>
+<script type="text/javascript">            
+    if (typeof FileReader == 'undefined') {
+        document.getElementById("xmTanDiv").InnerHTML = "<h1>当前浏览器不支持FileReader接口</h1>";
+       document.getElementById("xdaTanFileImg").setAttribute("disabled", "disabled");
+            }
+    //选择图片，马上预览
+     function xmTanUploadImg(obj) {
+      var file = obj.files[0];               
+      console.log(obj);console.log(file);
+      console.log("file.size = " + file.size);
+      var reader = new FileReader();
+      reader.onloadstart = function (e) {
+         console.log("开始读取....");
+      }
+        reader.onprogress = function (e) {
+             console.log("正在读取中....");
+      }
+      reader.onabort = function (e) {
+         console.log("中断读取....");
+      }
+      reader.onerror = function (e) {
+          console.log("读取异常....");
+      }
+      reader.onload = function (e) {
+          console.log("成功读取....");
+      var img = document.getElementById("avarimgs");
+          img.src = e.target.result;
+       //或者 img.src = this.result;  //e.target == this
+      }
+          reader.readAsDataURL(file)
+      }
+    </script>
+</html>

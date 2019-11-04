@@ -1,0 +1,22 @@
+format 将对象转化成字符串
+parse 将字符串转换成对象 query 获取get传值
+resolve 解析成正确的路径
+path
+resolve
+如果是绝对路径 则会用新路径覆盖旧的路径 
+如果是相对路径 则会拼接
+isAbsolute 返回是否是绝对路径 true fasle
+jion 按照特定标点分隔符 进行路径的拼接
+dirname 返回目录名称
+basename 返回当前路径
+extname 回去文件后缀名
+
+
+
+
+
+前端解决办法（解决跨域） 
+jsonp get
+cors web安全 crsf
+代理 proxy
+domain

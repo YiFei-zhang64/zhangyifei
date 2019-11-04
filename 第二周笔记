@@ -1,0 +1,22 @@
+11-4 
+( 版本控制系统)
+svn       (集成式代码管理工具))           也是一款代码管理工具
+两个区:
+工作区(本地) 服务区(线上)               多人共同管理
+git=>github=>gilab   代码管理工具 (分布式)                           
+三个区:
+工作区(本地)   暂存区   服务区(线上)
+github 注册
+
+命令  
+初始化(gitinit)   branch分支
+git status（查看文件状态
+git add .(添加所有文件到暂存区) 
+git add 文件名 (添加单个文件) 
+git config --global user.name"用户名" 
+登录git
+git commit -m(mark) "node讲解内容"
+提交 文件并注释
+git remote add origin 仓库地址
+链接远程仓库
+git push -u origin master 提交内容到master分支
